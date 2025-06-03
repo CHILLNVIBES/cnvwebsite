@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Chill N Vibes (CNV) - League of Legends E-Sports Team</title>
+  <title>Chill N Vibes (CNV) - Multi-Game E-Sports Team</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -28,6 +28,29 @@
       font-size: 1.2rem;
       color: #94a3b8;
       margin-top: 0.5rem;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .tab {
+      background: #1e293b;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      color: #e0e6ed;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .tab:hover {
+      background: #334155;
+    }
+    .tab.active {
+      background: #38bdf8;
+      color: #0a192f;
     }
     .team-container {
       display: flex;
@@ -88,9 +111,14 @@
 <body>
   <header>
     <h1>Chill N Vibes (CNV)</h1>
-    <p>League of Legends E-Sports Team - Where the vibes are chill and the plays are giga</p>
+    <p>Multi-Game E-Sports Team - Where the vibes are chill and the plays are giga</p>
   </header>
-  <section class="team-container">
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('lol')">League of Legends</button>
+    <button class="tab" onclick="showTab('valorant')">Valorant</button>
+    <button class="tab" onclick="showTab('marvel')">Marvel Rivals</button>
+  </div>
+  <section id="lol" class="team-container">
     <!-- Kris -->
     <div class="profile-card">
       <img class="profile-pic" src="https://api.dicebear.com/7.x/adventurer/svg?seed=Kris" alt="Kris profile picture">
@@ -146,5 +174,55 @@
       </div>
     </div>
   </section>
+  <section id="valorant" class="team-container" style="display: none;">
+    <!-- Noore -->
+    <div class="profile-card">
+      <img class="profile-pic" src="https://api.dicebear.com/7.x/adventurer/svg?seed=Noore" alt="Noore profile picture">
+      <div class="profile-name">Noore</div>
+      <div class="profile-role">Captain</div>
+      <div class="profile-desc">
+        The mastermind behind every clutch play. Noore’s aim is so precise, even the enemy team calls it “sus.” Known for saying “just one more” after every game, even if it’s 3 AM.
+      </div>
+    </div>
+  </section>
+  <section id="marvel" class="team-container" style="display: none;">
+    <!-- Dylan -->
+    <div class="profile-card">
+      <img class="profile-pic" src="https://api.dicebear.com/7.x/adventurer/svg?seed=Dylan" alt="Dylan profile picture">
+      <div class="profile-name">Dylan</div>
+      <div class="profile-role">Marvel Rivals Player</div>
+      <div class="profile-desc">
+        The ultimate Marvel fanboy. Dylan’s strategy is simple: pick the coolest hero and hope for the best. If you see a random ult in the middle of nowhere, it’s probably Dylan.
+      </div>
+    </div>
+    <!-- Kris -->
+    <div class="profile-card">
+      <img class="profile-pic" src="https://api.dicebear.com/7.x/adventurer/svg?seed=Kris" alt="Kris profile picture">
+      <div class="profile-name">Kris</div>
+      <div class="profile-role">Marvel Rivals Player</div>
+      <div class="profile-desc">
+        The wildcard of the team. Kris’s gameplay is as unpredictable as the Marvel multiverse. One moment, they’re carrying the team; the next, they’re asking, “What button is ult again?”
+      </div>
+    </div>
+    <!-- Smiley -->
+    <div class="profile-card">
+      <img class="profile-pic" src="https://api.dicebear.com/7.x/adventurer/svg?seed=Smiley" alt="Smiley profile picture">
+      <div class="profile-name">Smiley</div>
+      <div class="profile-role">Marvel Rivals Player</div>
+      <div class="profile-desc">
+        The team’s morale booster. Smiley’s positivity is infectious, even when the team is down 0-10. Known for saying, “We got this!” right before the enemy team wipes the floor with them.
+      </div>
+    </div>
+  </section>
+  <script>
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('.team-container');
+      tabs.forEach(tab => tab.style.display = 'none');
+      document.getElementById(tabId).style.display = 'flex';
+      const buttons = document.querySelectorAll('.tab');
+      buttons.forEach(button => button.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
 </body>
 </html>
